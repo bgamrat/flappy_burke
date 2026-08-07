@@ -14,6 +14,7 @@ Clone the repository:
 
    ```bash
    git clone https://github.com/Hernandez712/FlappyBird.git
+   ```
 
 # Credits
 
