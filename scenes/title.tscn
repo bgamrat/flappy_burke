@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://d1yetpg8yytxo"]
+
+[ext_resource type="Texture2D" uid="uid://ct4tg3y18778a" path="res://assets/go.png" id="4_pyl7j"]
+
+[sub_resource type="GDScript" id="GDScript_4ignj"]
+script/source = "extends CanvasLayer
+
+signal start
+
+func _on_start_button_pressed():
+	start.emit()
+"
+
+[node name="Title" type="CanvasLayer" unique_id=900177031]
+script = SubResource("GDScript_4ignj")
+
+[node name="Background" type="Polygon2D" parent="." unique_id=849745351]
+polygon = PackedVector2Array(-1, 1, 865, -1, 869, 946, -3, 937)
+
+[node name="GoButton" type="Button" parent="." unique_id=1059460687]
+offset_left = 310.0
+offset_top = 591.0
+offset_right = 545.0
+offset_bottom = 676.0
+icon = ExtResource("4_pyl7j")
+
+[connection signal="pressed" from="GoButton" to="." method="_on_start_button_pressed"]

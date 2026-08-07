@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b5n0xan6lfpvx"]
+
+[ext_resource type="Texture2D" uid="uid://1lvy2oa15wfl" path="res://assets/BCC Logo_color.png" id="1_3vi8l"]
+[ext_resource type="Script" uid="uid://cd44m4o5k4kmt" path="res://scenes/base.gd" id="1_baglu"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_o6xl0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tipki"]
+size = Vector2(862, 166)
+
+[node name="Base" type="Area2D" unique_id=1125158405]
+z_index = 100
+script = ExtResource("1_baglu")
+
+[node name="BCCLogo" type="Sprite2D" parent="." unique_id=201183805]
+z_index = 110
+material = SubResource("CanvasItemMaterial_o6xl0")
+position = Vector2(423.99997, 845.0001)
+scale = Vector2(1.7044444, 1.7044444)
+texture = ExtResource("1_3vi8l")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=202144310]
+position = Vector2(432, 851)
+shape = SubResource("RectangleShape2D_tipki")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1031227317]
+position = Vector2(2, 851)
+polygon = PackedVector2Array(-2, 0, -2, -86, 433.98364, -85.49716, 865, -85, 865, 85, -1, 85)
+
+[node name="GameCredit" type="RichTextLabel" parent="." unique_id=1062326873]
+z_index = 100
+offset_left = 196.0
+offset_top = 910.0
+offset_right = 648.0
+offset_bottom = 933.0
+focus_mode = 2
+bbcode_enabled = true
+text = "[color=\"black\"]Cloned from [url]https://github.com/Hernandez712/FlappyBird[/url][/color]"
+selection_enabled = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
