@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b6munb1x3xf0l"]
+
+[ext_resource type="Script" uid="uid://cd44m4o5k4kmt" path="res://scenes/ground.gd" id="1_n4u1q"]
+[ext_resource type="Texture2D" uid="uid://cum5khv3jtce1" path="res://assets/ground.png" id="2_nisoj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4u1q"]
+size = Vector2(862, 20.5)
+
+[node name="Ground" type="Area2D" unique_id=846401283]
+script = ExtResource("1_n4u1q")
+
+[node name="Green" type="TextureProgressBar" parent="." unique_id=1746648419]
+texture_repeat = 2
+offset_top = 742.0
+offset_right = 1728.0
+offset_bottom = 769.0
+texture_under = ExtResource("2_nisoj")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1631125922]
+position = Vector2(435, 756.75)
+shape = SubResource("RectangleShape2D_n4u1q")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

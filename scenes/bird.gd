@@ -7,10 +7,14 @@ var flying : bool = false
 var falling : bool = false
 var crashed : bool = false
 const START_POS = Vector2(100, 400)
+var CRASH_Y : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	reset()
+
+func set_floor(ground_floor):
+	CRASH_Y = ground_floor
 
 func reset():
 	crashed = false
@@ -31,14 +35,18 @@ func _physics_process(delta):
 			set_rotation(deg_to_rad(velocity.y * 0.05))
 			$AnimatedSprite2D.play("flying")
 		elif falling:
-			$AnimatedSprite2D.stop()
+			$AnimatedSprite2D.pause()
+			if position.y >= CRASH_Y:
+				falling = false
+				crashed = true
 		move_and_collide(velocity * delta)
 	else:
 		if crashed:
+			position.y = CRASH_Y
 			set_rotation(0)
 			$AnimatedSprite2D.play("crash")
-		else:
-			$AnimatedSprite2D.stop()
+			await get_tree().create_timer(3).timeout
+		$AnimatedSprite2D.pause()
 		
 func flap():
 	velocity.y = FLAP_SPEED
