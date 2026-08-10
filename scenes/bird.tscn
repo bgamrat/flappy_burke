@@ -48,7 +48,7 @@ animations = [{
 "duration": 15.0,
 "texture": ExtResource("10_87ggw")
 }],
-"loop": false,
+"loop": 0,
 "name": &"crash",
 "speed": 5.0
 }, {
@@ -62,8 +62,16 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_h1qdy")
 }],
-"loop": false,
+"loop": 0,
 "name": &"flying",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rt77f")
+}],
+"loop": 1,
+"name": &"gliding",
 "speed": 5.0
 }]
 
@@ -78,4 +86,4 @@ shape = SubResource("CapsuleShape2D_0hppq")
 z_index = 500
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_xn4pq")
-animation = &"crash"
+animation = &"flying"

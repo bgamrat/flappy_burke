@@ -11,7 +11,13 @@ var CRASH_Y : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AnimatedSprite2D.animation_finished.connect(_on_animation_finished)
 	reset()
+
+#waits for flying animation to finish when flap is called, then back to gliding
+func _on_animation_finished():
+	if $AnimatedSprite2D.animation == "flying":
+		$AnimatedSprite2D.play("gliding")
 
 func set_floor(ground_floor):
 	CRASH_Y = ground_floor
@@ -21,7 +27,7 @@ func reset():
 	falling = false
 	flying = false
 	position = START_POS
-	$AnimatedSprite2D.play("flying")
+	$AnimatedSprite2D.play("gliding")
 	set_rotation(0)
 	
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,7 +39,7 @@ func _physics_process(delta):
 			velocity.y = MAX_VEL
 		if flying:
 			set_rotation(deg_to_rad(velocity.y * 0.05))
-			$AnimatedSprite2D.play("flying")
+			# turned off setting anim each frame $AnimatedSprite2D.play("gliding")
 		elif falling:
 			$AnimatedSprite2D.pause()
 			if position.y >= CRASH_Y:
@@ -50,6 +56,11 @@ func _physics_process(delta):
 		
 func flap():
 	velocity.y = FLAP_SPEED
+	$AnimatedSprite2D.play("flying")
 	
 func crash():
 	crashed = true
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	pass # Replace with function body.
