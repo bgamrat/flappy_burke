@@ -6,18 +6,18 @@
 
 A simple **Flappy Bird** clone built using **Godot 4.4**. This project features procedural level generation, smooth 2D gameplay, and responsive player controls. It’s a great starting point for learning game development or exploring endless runner mechanics.
 
-### Run Locally
+# Run Locally
 
 To run the project on your local machine using Godot:
 
 Clone the repository:
 
    ```bash
-   git clone https://github.com/Hernandez712/FlappyBird.git
+   git clone https://github.com/bgamrat/flappy_burke.git
    ```
 
 # Credits
 
-- ![Initial game logic](https://github.com/Hernandez712/FlappyBird.git) - thanks!
-- ![Berkshire Community College image](https://blogs.berkshirecc.edu/about/)
-- ![Title pixel font](https://www.fontspace.com/public-pixel-font-f72305)
+- [Initial game logic](https://github.com/Hernandez712/FlappyBird.git) - thanks!
+- [Berkshire Community College image](https://blogs.berkshirecc.edu/about/)
+- [Title pixel font](https://www.fontspace.com/public-pixel-font-f72305)
