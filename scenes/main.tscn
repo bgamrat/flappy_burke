@@ -30,7 +30,7 @@ scale = Vector2(1.6977777, 1.6977777)
 texture = ExtResource("3_o6xl0")
 
 [node name="PipeTimer" type="Timer" parent="." unique_id=1062779809]
-wait_time = 1.5
+wait_time = 2.5
 
 [node name="ScoreLabel" type="Label" parent="." unique_id=841089129]
 visible = false

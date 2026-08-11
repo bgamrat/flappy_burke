@@ -14,9 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://cbqrwpnbwgx38" path="res://assets/crash_bird/sprite_7.png" id="9_dwk3s"]
 [ext_resource type="Texture2D" uid="uid://dtd1bm81j7l65" path="res://assets/crash_bird/sprite_8.png" id="10_87ggw"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hppq"]
-radius = 18.0
-height = 52.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_apdou"]
+radius = 17.0
+height = 34.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xn4pq"]
 animations = [{
@@ -80,7 +80,7 @@ script = ExtResource("1_jmxwj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1995873329]
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_0hppq")
+shape = SubResource("CapsuleShape2D_apdou")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1610861482]
 z_index = 500

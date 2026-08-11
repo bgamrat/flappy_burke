@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://b6munb1x3xf0l"]
 
 [ext_resource type="Script" uid="uid://cd44m4o5k4kmt" path="res://scenes/ground.gd" id="1_n4u1q"]
-[ext_resource type="Texture2D" uid="uid://cum5khv3jtce1" path="res://assets/ground.png" id="2_nisoj"]
+[ext_resource type="Texture2D" uid="uid://dbvvelpje3ubj" path="res://assets/ground_dirt.png" id="2_lmksl"]
+[ext_resource type="Texture2D" uid="uid://ctm6ilekbh48l" path="res://assets/grass_tile.png" id="2_mi8v4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n4u1q"]
 size = Vector2(862, 20.5)
@@ -9,15 +10,25 @@ size = Vector2(862, 20.5)
 [node name="Ground" type="Area2D" unique_id=846401283]
 script = ExtResource("1_n4u1q")
 
-[node name="Green" type="TextureProgressBar" parent="." unique_id=1746648419]
+[node name="Green" type="Sprite2D" parent="." unique_id=159290768]
 texture_repeat = 2
-offset_top = 742.0
-offset_right = 1728.0
-offset_bottom = 769.0
-texture_under = ExtResource("2_nisoj")
+position = Vector2(759, 735)
+scale = Vector2(2, 2)
+texture = ExtResource("2_lmksl")
+region_enabled = true
+region_rect = Rect2(0, 0, 758, 32)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1631125922]
-position = Vector2(435, 756.75)
+position = Vector2(432, 756.75)
 shape = SubResource("RectangleShape2D_n4u1q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=159825512]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(759, 722)
+scale = Vector2(2, 2)
+texture = ExtResource("2_mi8v4")
+region_enabled = true
+region_rect = Rect2(0, 0, 758, 31.965)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
