@@ -28,6 +28,7 @@ func reset():
 	flying = false
 	position = START_POS
 	$AnimatedSprite2D.play("gliding")
+	$AnimatedSprite2D/CrashParticle/CPUParticles2D.emitting = false # turns off particle emmission on reset or start
 	set_rotation(0)
 	
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -51,6 +52,7 @@ func _physics_process(delta):
 			position.y = CRASH_Y
 			set_rotation(0)
 			$AnimatedSprite2D.play("crash")
+			$AnimatedSprite2D/CrashParticle/CPUParticles2D.emitting = true #turns on particle emission after hitting ground
 			await get_tree().create_timer(3).timeout
 		$AnimatedSprite2D.pause()
 		

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bhoph1ta4lg82"]
+
+[ext_resource type="Texture2D" uid="uid://i5veko5b2mhk" path="res://assets/crash_spiral-0001.png" id="1_jwcsm"]
+
+[sub_resource type="Gradient" id="Gradient_14weu"]
+colors = PackedColorArray(1, 0.42745098, 0.41960785, 1, 1, 1, 1, 0)
+
+[node name="Node2D" type="Node2D" unique_id=1595778181]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=597031071]
+emitting = false
+amount = 4
+texture = ExtResource("1_jwcsm")
+lifetime = 5.0
+emission_shape = 3
+emission_rect_extents = Vector2(15.87, 0.1)
+gravity = Vector2(0, -10.155)
+angular_velocity_min = 90.0
+angular_velocity_max = 90.0
+angle_max = 90.0
+color_ramp = SubResource("Gradient_14weu")

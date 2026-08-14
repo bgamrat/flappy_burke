@@ -19,7 +19,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 758, 32)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1631125922]
-position = Vector2(432, 756.75)
+position = Vector2(432, 754.75)
 shape = SubResource("RectangleShape2D_n4u1q")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=159825512]
