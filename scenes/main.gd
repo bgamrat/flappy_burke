@@ -7,10 +7,11 @@ var game_over : bool
 var scroll
 var score
 const SCROLL_SPEED : int = 4
-const TILE_WIDTH : int = 128  # matches grass_tile.png
+const TILE_WIDTH : int = 128  
 var screen_size : Vector2i
 var ground_height : int
 var ground_floor : int
+var ground_floor_offset: int = 10 # shifting position of ground plane slightly - tweak as needed
 var pipes : Array
 const PIPE_DELAY : int = 100
 const PIPE_RANGE : int = 200
@@ -19,7 +20,7 @@ const PIPE_RANGE : int = 200
 func _ready():
 	game_running = false
 	screen_size = get_window().size
-	ground_floor = $Ground/Green.get("position").y
+	ground_floor = $Ground/Green.get("position").y - ground_floor_offset
 	ground_height = screen_size.y - ground_floor
 	new_game()
 
