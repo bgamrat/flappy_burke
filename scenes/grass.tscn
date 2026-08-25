@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bspdk2i0f85jb"]
+
+[ext_resource type="Texture2D" uid="uid://ctm6ilekbh48l" path="res://assets/grass_tile.png" id="1_e1kak"]
+
+[node name="Grass" type="Node2D" unique_id=1034276158]
+
+[node name="GrassTile" type="Sprite2D" parent="." unique_id=235544687]
+texture_repeat = 2
+position = Vector2(0, -16)
+texture = ExtResource("1_e1kak")

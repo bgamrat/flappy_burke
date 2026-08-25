@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://cr3pl7yfk32tb" path="res://scenes/pipe.tscn" id="2_h58j0"]
 [ext_resource type="PackedScene" uid="uid://b6xt1pam4caki" path="res://scenes/bird.tscn" id="3_4ap2d"]
 [ext_resource type="Texture2D" uid="uid://jkf7rejq8kev" path="res://assets/bcc.jpg" id="3_o6xl0"]
-[ext_resource type="Texture2D" uid="uid://bc3e4j3wxsakx" path="res://assets/Burke_Headshot_notext.svg" id="4_ya4ey"]
 [ext_resource type="FontFile" uid="uid://dcih81nnj8iqq" path="res://assets/PublicPixel-rv0pA.ttf" id="5_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://snrvq7jkapgf" path="res://scenes/game_over.tscn" id="6_yk7bg"]
+[ext_resource type="Texture2D" uid="uid://s8487i4es508" path="res://assets/burke_headshot_pixel.png" id="7_85g3d"]
 [ext_resource type="PackedScene" uid="uid://b6munb1x3xf0l" path="res://scenes/ground.tscn" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://b5n0xan6lfpvx" path="res://scenes/footer.tscn" id="10_choun"]
 
@@ -23,14 +23,8 @@ shadow_offset = Vector2(0, 0)
 script = ExtResource("1_5g6v2")
 pipe_scene = ExtResource("2_h58j0")
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1630447136]
-modulate = Color(1, 1, 1, 0.2)
-position = Vector2(452.99994, 387)
-scale = Vector2(1.6977777, 1.6977777)
-texture = ExtResource("3_o6xl0")
-
 [node name="PipeTimer" type="Timer" parent="." unique_id=1062779809]
-wait_time = 1.5
+wait_time = 2.5
 
 [node name="ScoreLabel" type="Label" parent="." unique_id=841089129]
 visible = false
@@ -58,15 +52,18 @@ position = Vector2(3, 4)
 script = null
 
 [node name="Ground" parent="." unique_id=846401283 instance=ExtResource("9_85g3d")]
+z_index = 4
 
 [node name="Title" type="Node2D" parent="." unique_id=1470728829]
 
 [node name="BurkeHead" type="Sprite2D" parent="Title" unique_id=1954103435]
-position = Vector2(430, 511)
-scale = Vector2(0.428, 0.428)
-texture = ExtResource("4_ya4ey")
+z_index = 2
+position = Vector2(430, 433.37)
+scale = Vector2(8, 8)
+texture = ExtResource("7_85g3d")
 
 [node name="FlappyBurke" type="Label" parent="Title" unique_id=1160849959]
+z_index = 1
 offset_left = 52.0
 offset_top = 45.0
 offset_right = 820.0
@@ -74,6 +71,18 @@ offset_bottom = 134.0
 text = "Flappy Burke"
 label_settings = SubResource("LabelSettings_trceg")
 horizontal_alignment = 1
+
+[node name="ParallaxBackground" type="Parallax2D" parent="." unique_id=1151912043]
+texture_repeat = 3
+repeat_size = Vector2(1600, 0)
+autoscroll = Vector2(-10, 0)
+
+[node name="Background" type="Sprite2D" parent="ParallaxBackground" unique_id=1630447136]
+modulate = Color(1, 1, 1, 0.2)
+texture_repeat = 3
+position = Vector2(673, 387)
+scale = Vector2(2, 2)
+texture = ExtResource("3_o6xl0")
 
 [connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
 [connection signal="restart" from="GameOver" to="." method="_on_game_over_restart"]

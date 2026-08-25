@@ -7,9 +7,11 @@ var game_over : bool
 var scroll
 var score
 const SCROLL_SPEED : int = 4
+const TILE_WIDTH : int = 128  
 var screen_size : Vector2i
 var ground_height : int
 var ground_floor : int
+var ground_floor_offset: int = 10 # shifting position of ground plane slightly - tweak as needed
 var pipes : Array
 const PIPE_DELAY : int = 100
 const PIPE_RANGE : int = 200
@@ -18,7 +20,7 @@ const PIPE_RANGE : int = 200
 func _ready():
 	game_running = false
 	screen_size = get_window().size
-	ground_floor = $Ground/Green.get("position").y
+	ground_floor = $Ground/Green.get("position").y - ground_floor_offset
 	ground_height = screen_size.y - ground_floor
 	new_game()
 
@@ -26,6 +28,7 @@ func new_game():
 	#reset variables
 	game_running = false
 	game_over = false
+	$PipeTimer.wait_time = 2.5 #resets the difficulty scaling
 	score = 0
 	scroll = 0
 	$ScoreLabel.text = "SCORE: " + str(score)
@@ -74,14 +77,14 @@ func stop_game():
 func _process(delta):
 	if game_running:
 		scroll += SCROLL_SPEED
-		#reset scroll
-		if scroll >= screen_size.x:
-			scroll = 0
+		scroll = fmod(scroll, TILE_WIDTH)
 		#move ground node
 		$Ground.position.x = -scroll
 		#move pipes
 		for pipe in pipes:
 			pipe.position.x -= SCROLL_SPEED
+		#scale difficulty relative to elapsed run time, capped at .8 seconds
+		$PipeTimer.wait_time = max(0.8, $PipeTimer.wait_time - (delta * 0.02))
 
 func _on_pipe_timer_timeout():
 	generate_pipes()
